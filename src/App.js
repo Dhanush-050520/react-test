@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import Login from './Login'
+import Dashboard from './Dashboard'
+import Dash from './Dash';
+import Transactions from './Transactions';
+import Schedules from './Schedules';
+import Users from './Users';
+import Settings from './Settings';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+const App = () => {
+    return (
+        <div>
+          <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Login/>}/>
+            <Route path='/dashboard' element={<Dashboard/>}>
+            <Route path='dash'  element={<Dash/>}/>
+            <Route path='transactions' element={<Transactions/>}/>
+            <Route path='schedules' element={<Schedules/>}/>
+            <Route path='users' element={<Users/>}/>
+            <Route path='settings' element={<Settings/>}/>
+
+            </Route>
+          </Routes>
+          </BrowserRouter>
+          
+          
+
+        </div>
+    )
 }
 
-export default App;
+export default App
